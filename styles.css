@@ -1,0 +1,422 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(190, 255, 27, 0.14), transparent 18%),
+    linear-gradient(135deg, #05061a 0%, #08153f 50%, #11296b 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  font-size: 16px;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+header {
+  position: fixed;
+  width: 80vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 600px;
+  gap: 100px;
+  z-index: 2;
+  background: rgba(8, 17, 45, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 18px 30px;
+  border-radius: 20px;
+}
+
+header img {
+  width: 250px;
+}
+
+header nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+}
+
+header nav li {
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+header nav li:hover {
+  background-color: #beff1b;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(190, 255, 27, 0.3);
+  animation: glow 2s ease-in-out infinite;
+  border: 1px solid rgba(190, 255, 27, 0.5);
+}
+
+header nav li:nth-child(1):hover {
+  background: linear-gradient(45deg, #beff1b, #a8ff00);
+  color: #000;
+  text-shadow: 0 0 8px rgba(190, 255, 27, 0.5);
+  box-shadow: 0 0 20px rgba(190, 255, 27, 0.6), 0 4px 15px rgba(190, 255, 27, 0.3);
+  border: 1px solid rgba(190, 255, 27, 0.5);
+}
+
+header nav li:nth-child(2):hover {
+  background: linear-gradient(45deg, #791fd3, #beff1b);
+  color: #fff;
+  text-shadow: 0 0 8px rgba(121, 31, 211, 0.5);
+  box-shadow: 0 0 20px rgba(121, 31, 211, 0.6), 0 4px 15px rgba(121, 31, 211, 0.3);
+  border: 1px solid rgba(121, 31, 211, 0.5);
+}
+
+header nav li:nth-child(3):hover {
+  background: linear-gradient(45deg, #ff6b6b, #beff1b);
+  color: #000;
+  text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.6), 0 4px 15px rgba(255, 107, 107, 0.3);
+  border: 1px solid rgba(255, 107, 107, 0.5);
+}
+
+@keyframes glow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(190, 255, 27, 0.3));
+    border-color: rgba(190, 255, 27, 0.5);
+    transform: scale(1.05);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(190, 255, 27, 0.8));
+    border-color: rgba(190, 255, 27, 1);
+    transform: scale(1.08);
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(190, 255, 27, 0.3));
+    border-color: rgba(190, 255, 27, 0.5);
+    transform: scale(1.05);
+  }
+}
+
+section {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.45);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+section .list {
+  width: 70vw;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+section .list .item {
+  position: absolute;
+  inset: 0;
+  transform: translateX(100vw);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+section .list .item .car-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70%;
+}
+
+section .list .item .car-img img {
+  width: 100%;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+section .list .item .content {
+  position: absolute;
+  right: 100px;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+}
+
+section .list .item .content .car-informacion {
+  font-weight: bold;
+  transform: translateX(200px);
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  transition-delay: 0.3s;
+  opacity: 0;
+}
+
+section .list .item .content h2 {
+  font-size: 4em;
+  line-height: 1em;
+  transform: translateX(200px);
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  transition-delay: 0.5s;
+  opacity: 0;
+}
+
+section .list .item .content .description {
+  font-size: 12px;
+  text-align: right;
+  max-width: 400px;
+  transform: translateX(200px);
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  transition-delay: 0.7s;
+  opacity: 0;
+}
+
+section .list .item .content .informacion {
+  border-radius: 30px;
+  height: 35px;
+  width: 120px;
+  text-transform: uppercase;
+  border: 2px solid #791fd3;
+  background-color: #beff1b;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transform: translateX(200px);
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  transition-delay: 0.9s;
+  opacity: 0;
+}
+
+section .list::before {
+  content: "";
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  top: 50%;
+  border-top: 1px solid #fff;
+}
+
+.cetas {
+  width: 70vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.cetas button:nth-child(1) img {
+  transform: scale(-1);
+}
+
+.cetas button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.cetas button img {
+  width: 30px;
+  margin-top: 4px;
+}
+
+.cetas button:hover {
+  background-color: #beff1b;
+}
+
+.indicadores {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 160px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 15px;
+}
+
+.indicadores .number {
+  font-size: 5em;
+}
+
+.indicadores ul {
+  display: flex;
+  gap: 10px;
+}
+
+.indicadores ul li {
+  width: 50px;
+  height: 5px;
+  background-color: #beff1b;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.indicadores ul li.active {
+  background-color: #fff;
+}
+
+section .list .item.fromLeft {
+  transform: translateX(-100vw);
+  opacity: 0;
+}
+
+section .list .item.fromRight {
+  transform: translateX(100vw);
+  opacity: 0;
+}
+
+section .list .item.toLeft {
+  transform: translateX(-100vw);
+  opacity: 0;
+}
+
+section .list .item.toRight {
+  transform: translateX(100vw);
+  opacity: 0;
+}
+
+section .list .item.active {
+  transform: translateX(0) !important;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+section .list .item.active .car-img img {
+  transform: rotate(-20deg);
+}
+
+section .list .item.active .content .car-informacion,
+section .list .item.active .content h2,
+section .list .item.active .content .description,
+section .list .item.active .content .informacion {
+  transform: translateX(0) !important;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  header {
+    width: 100vw;
+    left: 0;
+    transform: none;
+    padding: 20px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  header img {
+    width: 180px;
+    margin: 0 auto;
+  }
+
+  header nav ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  section {
+    min-height: 100vh;
+  }
+
+  section .list {
+    width: 100vw;
+  }
+
+  section .list::before {
+    top: 75%;
+  }
+
+  section .list .item .car-img {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+  }
+
+  section .list .item .content {
+    right: 0;
+    width: 100%;
+    bottom: 20px;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  section .list .item .content h2 {
+    font-size: 3em;
+  }
+
+  section .list .item .content .description {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .cetas {
+    width: 90vw;
+  }
+
+  .indicadores {
+    width: 100vw;
+  }
+
+  .indicadores .number {
+    font-size: 4em;
+  }
+}
+
+@media (max-width: 600px) {
+  header nav ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  header nav li {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  section .list .item .car-img {
+    width: 100%;
+    top: 8%;
+  }
+
+  section .list .item .content {
+    bottom: 10px;
+    padding: 0 15px;
+  }
+
+  section .list .item .content h2 {
+    font-size: 2.5em;
+  }
+
+  .cetas {
+    width: 95vw;
+  }
+
+  .indicadores .number {
+    font-size: 3.2em;
+  }
+
+  .indicadores ul li {
+    width: 40px;
+  }
+}
